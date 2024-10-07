@@ -49,6 +49,7 @@ class TorchDFTD3Calculator(Calculator):
         dtype: torch.dtype = torch.float32,
         bidirectional: bool = True,
         cutoff_smoothing: str = "none",
+        n_chunks: Optional[int] = None,
         **kwargs,
     ):
         self.dft = dft
@@ -74,6 +75,7 @@ class TorchDFTD3Calculator(Calculator):
                 dtype=dtype,
                 bidirectional=bidirectional,
                 cutoff_smoothing=cutoff_smoothing,
+                n_chunks=n_chunks,
             )
         self.dftd_module.to(device)
         self.dtype = dtype
